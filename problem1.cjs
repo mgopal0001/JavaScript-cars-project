@@ -1,19 +1,28 @@
 
-function problem1(carsInventory){
-
-    let carYear;
-    let carMake;
-    let carModel;
-
-    for (let rowIndex=0; rowIndex<carsInventory.length;rowIndex++){
-        if(carsInventory[rowIndex].id == 33){
-            carYear = carsInventory[rowIndex].car_year;
-            carMake = carsInventory[rowIndex].car_make;
-            carModel = carsInventory[rowIndex].car_model;
-        }
+function problem1(carsInventory, searchId){
+    
+    if(problem1.arguments.length < 1){
+        return [];
     }
-    let carDetails = 'Car 33 is a '+carYear +' '+ carMake +' '+carModel;
-    return carDetails;
+    if(carsInventory.length == 0){
+        return [];
+    }
+    if(typeof searchId == 'undefined'){
+        return [];
+    }
+    if(typeof(searchId) != 'number'){
+        return [];
+    }
+    if(!Array.isArray(carsInventory)){
+        return [];
+    }
+   
+    for(let rowIndex = 0; rowIndex < carsInventory.length; rowIndex++){
+        if(carsInventory[rowIndex].id == searchId){
+            return carsInventory[rowIndex];
+        }
+    }   
 }
+
 module.exports = problem1;
 
