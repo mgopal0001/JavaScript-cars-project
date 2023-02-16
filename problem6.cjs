@@ -1,16 +1,31 @@
-function problem6(carsInventory){
+function problem6(carsInventory, searchCars = []){
 
-    let detailsOfBmwAndAudi = [];
-    let bmwAudiIndex = 0;
+    if(problem6.arguments.length < 1){
+        return [];
+    }
+    if(carsInventory.length == 0){
+        return [];
+    }
+    if(typeof searchCars == 'undefined'){
+        return [];
+    }
+    if(!Array.isArray(searchCars)){
+        return [];
+    }
 
-    for(let rowIndex = 0; rowIndex < carsInventory.length; rowIndex++){
-        
-        if(carsInventory[rowIndex].car_make == 'BMW' || carsInventory[rowIndex].car_make == 'Audi'){
-            detailsOfBmwAndAudi[bmwAudiIndex] = carsInventory[rowIndex];
-            bmwAudiIndex++;
+    let detailOfCars = [];
+    let carIndex = 0;
+
+    for(let rowIndex = 0; rowIndex < searchCars.length; rowIndex++){
+
+        for(let columnIndex = 0; columnIndex < carsInventory.length; columnIndex++){
+            
+            if(carsInventory[columnIndex].car_make == searchCars[rowIndex]){
+
+                detailOfCars.push(carsInventory[columnIndex]);
+            }
         }
     }
-    
-    return detailsOfBmwAndAudi;
+    return detailOfCars;
 }
 module.exports = problem6;
