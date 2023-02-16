@@ -1,19 +1,19 @@
 function problem5(allCarYears , olderYear){
 
     if(problem5.arguments.length < 1){
-        return [1];
+        return [];
     }
     if(allCarYears.length == 0){
-        return [2];
+        return [];
     }
     if(!Array.isArray(allCarYears)){
-        return [3];
+        return [];
     }
     if(typeof olderYear == 'undefined'){
-        return [4];
+        return [];
     }
     if(typeof(olderYear) != 'number'){
-        return [5];
+        return [];
     }
 
     allCarYears.sort();
