@@ -1,6 +1,16 @@
 function problem2(carsInventory){
-    let lastCarData = carsInventory[carsInventory.length -1];
-    let lastCar = 'Last car is a '+ lastCarData.car_make +' '+ lastCarData.car_model;
-    return lastCar;
+
+    if(problem2.arguments.length < 1){
+        return [];
+    }
+    if(carsInventory.length == 0){
+        return [];
+    }
+    if(!Array.isArray(carsInventory)){
+        return [];
+    }
+
+    const  lastCar = carsInventory[carsInventory.length -1];
+    return lastCar
 }
 module.exports = problem2;
